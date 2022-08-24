@@ -3,7 +3,7 @@ A couple of automated tests, JavaScript
 
 ### This first example tests for correct page, button function and search field function:
 
-'''
+```
 describe('eMag.ro', () => {
 
     it('should have the correct page title', async () => {
@@ -37,4 +37,4 @@ describe('eMag.ro', () => {
     });
 
 });
-'''
+```
