@@ -38,3 +38,55 @@ describe('eMag.ro', () => {
 
 });
 ```
+
+### This example focuses on correct function of contact form:
+
+```
+describe('damarc.ro', () => {
+
+    it('should have working contact form', async () => {
+
+        await browser.url('https://www.damarc.ro');
+        
+        const contactButton = await $('#menu-item-962')
+        await contactButton.click();
+        await expect(browser).toHaveTitle('Contact - Damarc');
+
+        const elementRef = await browser.findElement('xpath', '//*[@id="CybotCookiebotDialogBodyLevelButtonAccept"]')
+        const cookieButtonOk = await $(elementRef);
+
+        const nameField = await $('#wpforms-20-field_0');
+
+        const emailField = await $('#wpforms-20-field_1');
+
+        const subjectField = await $('#wpforms-20-field_4');
+
+        const messageField = await $('#wpforms-20-field_2');
+
+        const sendButton = await $('#wpforms-submit-20');
+
+        const confirmationMessage = await $('#wpforms-confirmation-20');
+
+        await cookieButtonOk.click();
+
+        await nameField.click({ timeout: 3000 });
+        await nameField.setValue('Test_123');
+        
+        await emailField.click();
+        await emailField.setValue('radu.nuta10@gmail.com');
+
+        await subjectField.click();
+        await subjectField.setValue('Test_123');
+
+        await messageField.click();
+        await messageField.setValue('Test_123');
+
+        await sendButton.click();
+        await expect(confirmationMessage).toBeDisplayed();
+
+
+    })
+
+})
+
+```
