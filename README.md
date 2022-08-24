@@ -73,7 +73,7 @@ describe('damarc.ro', () => {
         await nameField.setValue('Test_123');
         
         await emailField.click();
-        await emailField.setValue('radu.nuta10@gmail.com');
+        await emailField.setValue('place.holder@gmail.com');
 
         await subjectField.click();
         await subjectField.setValue('Test_123');
